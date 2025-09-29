@@ -20,13 +20,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const linkCadastro = document.getElementById("link-cadastro");
   const linkPerfil = document.getElementById("link-perfil");
   const linkAdmin = document.getElementById("link-admin");
-  const linkSair = document.getElementById("link-sair");
 
   if (usuarioLogado) {
     if (linkLogin) linkLogin.style.display = "none";
     if (linkCadastro) linkCadastro.style.display = "none";
     if (linkPerfil) linkPerfil.style.display = "inline-block";
-    if (linkSair) linkSair.style.display = "inline-block";
 
     // Mostrar link admin apenas se for permitido
     if (linkAdmin && usuarioLogado.tipo === "admin" && emailsAdmin.includes(usuarioLogado.email)) {
@@ -40,11 +38,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Botão sair
-  if (linkSair) {
-    linkSair.addEventListener("click", () => {
-      localStorage.removeItem("usuarioLogado");
-      window.location.href = "index.html";
+  // Botão sair (apenas em perfil)
+  const btnSair = document.getElementById("link-sair");
+  if (btnSair) {
+    btnSair.addEventListener("click", () => {
+      const confirmacao = confirm("Tem certeza que deseja sair?");
+      if (confirmacao) {
+        localStorage.removeItem("usuarioLogado");
+        window.location.href = "index.html";
+      }
     });
   }
 });
@@ -67,7 +69,6 @@ if (formCadastro) {
       return;
     }
 
-    // salvar no localStorage
     const usuario = { nome, email, senha, tipo };
     localStorage.setItem("usuario", JSON.stringify(usuario));
     localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
