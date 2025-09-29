@@ -3,20 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Painel do Administrador</title>
+  <title>Painel Admin</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="fade-in">
   <header>
     <nav>
       <a href="index.html" class="logo">Troque Serviços</a>
+      <div class="menu">
+        <a href="index.html">Home</a>
+      </div>
     </nav>
   </header>
+
   <main class="perfil-container">
-    <h2>Área Administrativa</h2>
-    <p>Bem-vindo, administrador!</p>
+    <h2>Painel Administrativo</h2>
+    <h3>Usuários cadastrados</h3>
+    <table id="tabelaUsuarios">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <h3>Serviços cadastrados</h3>
+    <ul>
+      <li>Aulas de Violão 🎸</li>
+      <li>Conserto de Celulares 📱</li>
+      <li>Design de Logos 🎨</li>
+    </ul>
+
     <button id="logoutBtn" class="btn-prisma">Sair</button>
   </main>
+
   <script src="script.js"></script>
 </body>
 </html>
