@@ -1,79 +1,24 @@
-// ============================
-// Emails permitidos como Admin
-// ============================
-const emailsAdmin = [
+const adminEmails = [
   "trn@aluno.ifnmg.edu.br",
   "vlap@aluno.ifnmg.edu.br",
-  "jgps2@aluno.ifnmg.edu.br",
+  "jpgs2@aluno.ifnmg.edu.br",
   "lpo2@aluno.ifnmg.edu.br",
   "mjfb@aluno.ifnmg.edu.br",
   "hbf2@aluno.ifnmg.edu.br"
 ];
 
-// ============================
-// Verificar login no site
-// ============================
-document.addEventListener("DOMContentLoaded", () => {
-  const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
-
-  const linkLogin = document.getElementById("link-login");
-  const linkCadastro = document.getElementById("link-cadastro");
-  const linkPerfil = document.getElementById("link-perfil");
-  const linkAdmin = document.getElementById("link-admin");
-
-  if (usuarioLogado) {
-    if (linkLogin) linkLogin.style.display = "none";
-    if (linkCadastro) linkCadastro.style.display = "none";
-    if (linkPerfil) linkPerfil.style.display = "inline-block";
-
-    // Mostrar link admin apenas se for permitido
-    if (linkAdmin && usuarioLogado.tipo === "admin" && emailsAdmin.includes(usuarioLogado.email)) {
-      linkAdmin.style.display = "inline-block";
-    }
-
-    // Personalizar perfil
-    const nomeUsuario = document.getElementById("nome-usuario");
-    if (nomeUsuario) {
-      nomeUsuario.textContent = `Bem-vindo, ${usuarioLogado.nome}!`;
-    }
-  }
-
-  // Botão sair (apenas em perfil)
-  const btnSair = document.getElementById("link-sair");
-  if (btnSair) {
-    btnSair.addEventListener("click", () => {
-      const confirmacao = confirm("Tem certeza que deseja sair?");
-      if (confirmacao) {
-        localStorage.removeItem("usuarioLogado");
-        window.location.href = "index.html";
-      }
-    });
-  }
-});
-
-// ============================
 // Cadastro
-// ============================
-const formCadastro = document.getElementById("form-cadastro");
-if (formCadastro) {
-  formCadastro.addEventListener("submit", (e) => {
+const cadastroForm = document.getElementById("cadastroForm");
+if (cadastroForm) {
+  cadastroForm.addEventListener("submit", e => {
     e.preventDefault();
-    const nome = document.getElementById("cadastro-nome").value;
-    const email = document.getElementById("cadastro-email").value;
-    const senha = document.getElementById("cadastro-senha").value;
-    const tipo = document.getElementById("cadastro-tipo").value;
+    const nome = document.getElementById("cadastroNome").value;
+    const email = document.getElementById("cadastroEmail").value;
+    const senha = document.getElementById("cadastroSenha").value;
 
-    // Validação de admin
-    if (tipo === "admin" && !emailsAdmin.includes(email)) {
-      alert("Este e-mail não tem permissão para ser administrador.");
-      return;
-    }
+    localStorage.setItem("user", JSON.stringify({ nome, email, senha }));
 
-    const usuario = { nome, email, senha, tipo };
-    localStorage.setItem("usuario", JSON.stringify(usuario));
-    localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
-
-    if (tipo === "admin") {
+    if (adminEmails.includes(email)) {
       window.location.href = "admin.html";
     } else {
       window.location.href = "index.html";
@@ -81,27 +26,45 @@ if (formCadastro) {
   });
 }
 
-// ============================
 // Login
-// ============================
-const formLogin = document.getElementById("form-login");
-if (formLogin) {
-  formLogin.addEventListener("submit", (e) => {
+const loginForm = document.getElementById("loginForm");
+if (loginForm) {
+  loginForm.addEventListener("submit", e => {
     e.preventDefault();
-    const email = document.getElementById("login-email").value;
-    const senha = document.getElementById("login-senha").value;
+    const email = document.getElementById("loginEmail").value;
+    const senha = document.getElementById("loginPassword").value;
+    const user = JSON.parse(localStorage.getItem("user"));
 
-    const usuario = JSON.parse(localStorage.getItem("usuario"));
-    if (usuario && usuario.email === email && usuario.senha === senha) {
-      localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
-
-      if (usuario.tipo === "admin" && emailsAdmin.includes(usuario.email)) {
+    if (user && user.email === email && user.senha === senha) {
+      if (adminEmails.includes(email)) {
         window.location.href = "admin.html";
       } else {
-        window.location.href = "index.html";
+        window.location.href = "perfil.html";
       }
     } else {
-      alert("E-mail ou senha incorretos!");
+      alert("Usuário ou senha inválidos!");
+    }
+  });
+}
+
+// Perfil
+const perfilNome = document.getElementById("perfilNome");
+const perfilEmail = document.getElementById("perfilEmail");
+if (perfilNome && perfilEmail) {
+  const user = JSON.parse(localStorage.getItem("user"));
+  if (user) {
+    perfilNome.textContent = user.nome;
+    perfilEmail.textContent = user.email;
+  }
+}
+
+// Logout
+const logoutBtn = document.getElementById("logoutBtn");
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", () => {
+    if (confirm("Tem certeza que deseja sair?")) {
+      localStorage.removeItem("user");
+      window.location.href = "index.html";
     }
   });
 }

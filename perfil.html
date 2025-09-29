@@ -3,34 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Perfil - Troque Serviços</title>
+  <title>Perfil do Usuário</title>
   <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
 </head>
-<body>
+<body class="fade-in">
   <header>
-    <div class="logo">Troque<span>Serviços</span></div>
-    <nav id="menu">
-      <a href="index.html">Início</a>
-      <a href="perfil.html" class="ativo">Meu Perfil</a>
+    <nav>
+      <a href="index.html" class="logo">Troque Serviços</a>
     </nav>
   </header>
-
-  <section class="perfil">
-    <h2 id="nome-usuario">Bem-vindo, Usuário!</h2>
-    <p>Aqui estão seus serviços:</p>
-    <div class="cards">
-      <div class="card">
-        <h3>Meus Serviços</h3>
-        <p>Você ainda não cadastrou serviços.</p>
-        <button class="btn">Adicionar Serviço</button>
-      </div>
-    </div>
-
-    <!-- Botão sair -->
-    <div class="logout">
-      <button id="link-sair" class="btn btn-danger">Sair</button>
-    </div>
-  </section>
+  <main class="perfil-container">
+    <h2>Bem-vindo, <span id="perfilNome"></span>!</h2>
+    <p>Email: <span id="perfilEmail"></span></p>
+    <button id="logoutBtn" class="btn-prisma">Sair</button>
+  </main>
+  <script src="script.js"></script>
 </body>
 </html>

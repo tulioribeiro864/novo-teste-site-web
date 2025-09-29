@@ -5,56 +5,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Troque Serviços</title>
   <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
 </head>
-<body>
+<body class="fade-in">
   <!-- HEADER -->
   <header>
-    <div class="logo">Troque<span>Serviços</span></div>
-    <nav id="menu">
-      <a href="index.html">Início</a>
-      <a href="cadastro.html" id="link-cadastro">Cadastro</a>
-      <a href="login.html" id="link-login">Login</a>
-      <a href="perfil.html" id="link-perfil" style="display:none;">Meu Perfil</a>
-      <a href="admin.html" id="link-admin" style="display:none;">Admin</a>
+    <nav>
+      <a href="index.html" class="logo">Troque Serviços</a>
+      <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="login.html">Login</a>
+        <a href="cadastro.html">Cadastro</a>
+      </div>
     </nav>
   </header>
 
   <!-- HERO -->
   <section class="hero">
-    <h1>Troque serviços dentro da instituição</h1>
-    <p>Conecte-se, ajude e seja ajudado!</p>
+    <h1>Troque serviços <br> dentro da instituição</h1>
     <div class="botoes-hero">
-      <a href="cadastro.html" class="btn">Cadastre-se</a>
-      <a href="login.html" class="btn">Entrar</a>
+      <button onclick="window.location.href='cadastro.html'" class="btn-prisma">Cadastre-se</button>
+      <button onclick="window.location.href='login.html'" class="btn-prisma">Encontre um serviço</button>
     </div>
   </section>
 
   <!-- SERVIÇOS -->
   <section class="servicos">
-    <h2>Serviços recentes</h2>
+    <h2>Serviços em destaque</h2>
     <div class="cards">
       <div class="card">
         <h3>Aulas de Violão 🎸</h3>
-        <p>Aprenda rápido com aulas práticas.</p>
-        <button class="btn">Reservar</button>
+        <p>Aprenda do zero com aulas práticas.</p>
+        <button class="btn-prisma">Reservar</button>
       </div>
       <div class="card">
         <h3>Conserto de Celulares 📱</h3>
-        <p>Troca de tela, bateria e software.</p>
-        <button class="btn">Reservar</button>
+        <p>Troca de tela, bateria e mais.</p>
+        <button class="btn-prisma">Reservar</button>
       </div>
       <div class="card">
         <h3>Design de Logos 🎨</h3>
-        <p>Identidade visual moderna para seu projeto.</p>
-        <button class="btn">Reservar</button>
+        <p>Identidade visual para seu projeto.</p>
+        <button class="btn-prisma">Reservar</button>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <p>© 2025 Troque Serviços - Todos os direitos reservados.</p>
+    <p>&copy; 2025 - Troque Serviços</p>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

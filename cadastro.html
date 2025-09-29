@@ -3,24 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cadastro - Troque Serviços</title>
+  <title>Cadastro</title>
   <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
 </head>
-<body class="pagina-secundaria">
-  <div class="container-form">
+<body class="fade-in">
+  <div class="form-container">
     <h2>Cadastro</h2>
-    <form id="form-cadastro">
-      <input type="text" id="cadastro-nome" placeholder="Nome completo" required>
-      <input type="email" id="cadastro-email" placeholder="E-mail" required>
-      <input type="password" id="cadastro-senha" placeholder="Senha" required>
-      <select id="cadastro-tipo" required>
-        <option value="">Selecione seu tipo</option>
-        <option value="usuario">Usuário</option>
-        <option value="admin">Administrador</option>
-      </select>
-      <button type="submit" class="btn">Cadastrar</button>
+    <form id="cadastroForm">
+      <input type="text" id="cadastroNome" placeholder="Nome" required>
+      <input type="email" id="cadastroEmail" placeholder="Email" required>
+      <input type="password" id="cadastroSenha" placeholder="Senha" required>
+      <button type="submit" class="btn-prisma">Cadastrar</button>
     </form>
+    <p>Já tem conta? <a href="login.html">Faça login</a></p>
   </div>
+  <script src="script.js"></script>
 </body>
 </html>

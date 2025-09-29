@@ -3,28 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Administração - Troque Serviços</title>
+  <title>Painel do Administrador</title>
   <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
 </head>
-<body>
+<body class="fade-in">
   <header>
-    <div class="logo">Troque<span>Serviços</span> - Admin</div>
     <nav>
-      <a href="index.html">Início</a>
-      <a href="perfil.html">Perfil</a>
-      <a href="#" id="link-sair">Sair</a>
+      <a href="index.html" class="logo">Troque Serviços</a>
     </nav>
   </header>
-
-  <section class="admin">
-    <h2>Painel de Administração</h2>
-    <p>Gerencie usuários, serviços e relatórios.</p>
-    <div class="cards">
-      <div class="card"><h3>Usuários</h3><p>Lista e controle de cadastros.</p></div>
-      <div class="card"><h3>Serviços</h3><p>Aprovar, editar ou remover serviços.</p></div>
-      <div class="card"><h3>Relatórios</h3><p>Estatísticas de uso da plataforma.</p></div>
-    </div>
-  </section>
+  <main class="perfil-container">
+    <h2>Área Administrativa</h2>
+    <p>Bem-vindo, administrador!</p>
+    <button id="logoutBtn" class="btn-prisma">Sair</button>
+  </main>
+  <script src="script.js"></script>
 </body>
 </html>
