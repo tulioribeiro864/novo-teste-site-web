@@ -5,15 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cadastro - Troque Serviços</title>
   <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
 </head>
 <body class="pagina-secundaria">
   <div class="container-form">
     <h2>Cadastro</h2>
-    <form>
-      <input type="text" placeholder="Nome completo" required>
-      <input type="email" placeholder="E-mail institucional" required>
-      <input type="password" placeholder="Senha" required>
-      <select required>
+    <form id="form-cadastro">
+      <input type="text" id="cadastro-nome" placeholder="Nome completo" required>
+      <input type="email" id="cadastro-email" placeholder="E-mail" required>
+      <input type="password" id="cadastro-senha" placeholder="Senha" required>
+      <select id="cadastro-tipo" required>
         <option value="">Selecione seu tipo</option>
         <option value="usuario">Usuário</option>
         <option value="admin">Administrador</option>

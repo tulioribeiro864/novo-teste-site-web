@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - Troque Serviços</title>
   <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
 </head>
 <body class="pagina-secundaria">
   <div class="container-form">
     <h2>Login</h2>
-    <form>
-      <input type="email" placeholder="E-mail" required>
-      <input type="password" placeholder="Senha" required>
+    <form id="form-login">
+      <input type="email" id="login-email" placeholder="E-mail" required>
+      <input type="password" id="login-senha" placeholder="Senha" required>
       <button type="submit" class="btn">Entrar</button>
       <p>Não tem conta? <a href="cadastro.html">Cadastre-se</a></p>
     </form>
