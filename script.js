@@ -2,7 +2,7 @@
 // Emails permitidos como Admin
 // ============================
 const emailsAdmin = [
-  "trn@gmail.com",
+  "trn@aluno.ifnmg.edu.br",
   "vlap@aluno.ifnmg.edu.br",
   "jgps2@aluno.ifnmg.edu.br",
   "lpo2@aluno.ifnmg.edu.br",
