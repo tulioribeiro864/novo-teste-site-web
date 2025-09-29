@@ -1,4 +1,16 @@
 // ============================
+// Emails permitidos como Admin
+// ============================
+const emailsAdmin = [
+  "trn@gmail.com",
+  "vlap@aluno.ifnmg.edu.br",
+  "jgps2@aluno.ifnmg.edu.br",
+  "lpo2@aluno.ifnmg.edu.br",
+  "mjfb@aluno.ifnmg.edu.br",
+  "hbf2@aluno.ifnmg.edu.br"
+];
+
+// ============================
 // Verificar login no site
 // ============================
 document.addEventListener("DOMContentLoaded", () => {
@@ -7,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const linkLogin = document.getElementById("link-login");
   const linkCadastro = document.getElementById("link-cadastro");
   const linkPerfil = document.getElementById("link-perfil");
+  const linkAdmin = document.getElementById("link-admin");
   const linkSair = document.getElementById("link-sair");
 
   if (usuarioLogado) {
@@ -14,6 +27,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (linkCadastro) linkCadastro.style.display = "none";
     if (linkPerfil) linkPerfil.style.display = "inline-block";
     if (linkSair) linkSair.style.display = "inline-block";
+
+    // Mostrar link admin apenas se for permitido
+    if (linkAdmin && usuarioLogado.tipo === "admin" && emailsAdmin.includes(usuarioLogado.email)) {
+      linkAdmin.style.display = "inline-block";
+    }
 
     // Personalizar perfil
     const nomeUsuario = document.getElementById("nome-usuario");
@@ -43,12 +61,22 @@ if (formCadastro) {
     const senha = document.getElementById("cadastro-senha").value;
     const tipo = document.getElementById("cadastro-tipo").value;
 
+    // Validação de admin
+    if (tipo === "admin" && !emailsAdmin.includes(email)) {
+      alert("Este e-mail não tem permissão para ser administrador.");
+      return;
+    }
+
     // salvar no localStorage
     const usuario = { nome, email, senha, tipo };
     localStorage.setItem("usuario", JSON.stringify(usuario));
     localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
 
-    window.location.href = "index.html";
+    if (tipo === "admin") {
+      window.location.href = "admin.html";
+    } else {
+      window.location.href = "index.html";
+    }
   });
 }
 
@@ -65,7 +93,12 @@ if (formLogin) {
     const usuario = JSON.parse(localStorage.getItem("usuario"));
     if (usuario && usuario.email === email && usuario.senha === senha) {
       localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
-      window.location.href = "index.html";
+
+      if (usuario.tipo === "admin" && emailsAdmin.includes(usuario.email)) {
+        window.location.href = "admin.html";
+      } else {
+        window.location.href = "index.html";
+      }
     } else {
       alert("E-mail ou senha incorretos!");
     }

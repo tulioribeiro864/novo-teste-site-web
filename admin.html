@@ -3,45 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin - Troque Serviços</title>
+  <title>Administração - Troque Serviços</title>
   <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
 </head>
 <body>
   <header>
-    <div class="logo">Painel <span>Admin</span></div>
+    <div class="logo">Troque<span>Serviços</span> - Admin</div>
     <nav>
       <a href="index.html">Início</a>
-      <a href="admin.html" class="ativo">Admin</a>
-      <a href="login.html">Sair</a>
+      <a href="perfil.html">Perfil</a>
+      <a href="#" id="link-sair">Sair</a>
     </nav>
   </header>
 
   <section class="admin">
-    <h2>Gerenciar Serviços</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Usuário</th>
-          <th>Serviço</th>
-          <th>Status</th>
-          <th>Ação</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Maria</td>
-          <td>Aulas de Inglês</td>
-          <td>Aprovado</td>
-          <td><button class="btn">Remover</button></td>
-        </tr>
-        <tr>
-          <td>João</td>
-          <td>Conserto de Bicicleta</td>
-          <td>Pendente</td>
-          <td><button class="btn">Aprovar</button></td>
-        </tr>
-      </tbody>
-    </table>
+    <h2>Painel de Administração</h2>
+    <p>Gerencie usuários, serviços e relatórios.</p>
+    <div class="cards">
+      <div class="card"><h3>Usuários</h3><p>Lista e controle de cadastros.</p></div>
+      <div class="card"><h3>Serviços</h3><p>Aprovar, editar ou remover serviços.</p></div>
+      <div class="card"><h3>Relatórios</h3><p>Estatísticas de uso da plataforma.</p></div>
+    </div>
   </section>
 </body>
 </html>
