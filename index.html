@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Troque Serviços</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 </head>
 <body class="fade-in">
   <!-- HEADER -->
@@ -28,13 +29,33 @@
     </div>
   </section>
 
-  <!-- SERVIÇOS -->
-<section class="servicos">
-  <h2>Serviços em destaque</h2>
-  <div class="cards" id="servicosUsuarios">
-    <!-- Serviços dos usuários vão aparecer aqui -->
-  </div>
-</section>
+  <!-- SERVIÇOS FIXOS -->
+  <section class="servicos">
+    <h2>Serviços em destaque</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Aulas de Violão 🎸</h3>
+        <p>Aprenda do zero com aulas práticas.</p>
+        <button class="btn-prisma">Reservar</button>
+      </div>
+      <div class="card">
+        <h3>Conserto de Celulares 📱</h3>
+        <p>Troca de tela, bateria e mais.</p>
+        <button class="btn-prisma">Reservar</button>
+      </div>
+      <div class="card">
+        <h3>Design de Logos 🎨</h3>
+        <p>Identidade visual para seu projeto.</p>
+        <button class="btn-prisma">Reservar</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS DOS USUÁRIOS -->
+  <section class="servicos">
+    <h2>Serviços dos Usuários</h2>
+    <div id="servicosUsuarios"></div>
+  </section>
 
   <!-- FOOTER -->
   <footer>
