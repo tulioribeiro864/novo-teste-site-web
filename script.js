@@ -131,14 +131,36 @@ const reservadosContainer = document.getElementById("servicosReservados");
 if(reservadosContainer){
   let reservas = JSON.parse(localStorage.getItem("reservas")) || {};
   let meusReservados = reservas[user.email] || [];
-  if(meusReservados.length===0) reservadosContainer.innerHTML="<p>Você ainda não reservou nenhum serviço.</p>";
-  else meusReservados.forEach(s=>{
-    const card = document.createElement("div");
-    card.classList.add("card");
-    const imgHTML = s.imagens && s.imagens[0] ? `<img src="${s.imagens[0]}" style="width:100%;border-radius:8px;margin:5px 0;">`:"";
-    card.innerHTML = `${imgHTML}<p><b>Serviço:</b> ${s.nome}</p><p>${s.descricao}</p><p><b>Contato:</b> ${s.contato}</p>`;
-    reservadosContainer.appendChild(card);
-  });
+
+  function renderReservas() {
+    reservadosContainer.innerHTML = "";
+    if(meusReservados.length===0){
+      reservadosContainer.innerHTML="<p>Você ainda não reservou nenhum serviço.</p>";
+    } else {
+      meusReservados.forEach((s, i)=>{
+        const card = document.createElement("div");
+        card.classList.add("card");
+        const imgHTML = s.imagens && s.imagens[0] ? `<img src="${s.imagens[0]}" style="width:100%;border-radius:8px;margin:5px 0;">`:"";
+        card.innerHTML = `
+          ${imgHTML}
+          <p><b>Serviço:</b> ${s.nome}</p>
+          <p>${s.descricao}</p>
+          <p><b>Contato:</b> ${s.contato}</p>
+          <button onclick="cancelarReserva(${i})" class="btn-cancelar">Cancelar</button>
+        `;
+        reservadosContainer.appendChild(card);
+      });
+    }
+  }
+
+  renderReservas();
+
+  window.cancelarReserva = function(index){
+    meusReservados.splice(index, 1);
+    reservas[user.email] = meusReservados;
+    localStorage.setItem("reservas", JSON.stringify(reservas));
+    renderReservas();
+  }
 }
 
 function editarServico(index){
