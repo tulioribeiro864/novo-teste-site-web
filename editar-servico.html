@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editar Serviço</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html" class="logo">Troque Serviços</a>
+      <div class="menu" id="menuLinks">
+        <a href="index.html">Home</a>
+        <a href="perfil.html">Perfil</a>
+        <a href="#" id="logoutBtn">Sair</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="perfil-container">
+    <h1>Editar Serviço</h1>
+    <form id="editarServicoForm">
+      <input type="text" id="editarNome" placeholder="Nome do serviço" required>
+      <textarea id="editarDescricao" placeholder="Descrição" required></textarea>
+      <input type="text" id="editarContato" placeholder="Contato" required>
+      <label>Atualizar imagens:</label>
+      <input type="file" id="editarImagens" accept="image/*" multiple>
+      <button type="submit" class="btn-prisma">Salvar Alterações</button>
+    </form>
+  </main>
+
+  <script src="editar-servico.js"></script>
+</body>
+</html>
