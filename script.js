@@ -120,7 +120,8 @@ if (logoutBtn) {
       window.location.href = "index.html";
     }
   });
-}
+  }
+  
 heroSectionTL.from(heroTextTitle, {
   duration: 1.2,
   opacity: 0,
