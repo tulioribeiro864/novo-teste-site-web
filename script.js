@@ -286,4 +286,88 @@ function editarServico(index) {
   alert("Serviço atualizado!");
   window.location.reload();
 }
+// Simulação de usuário logado
+let usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+
+if(!usuarioLogado){
+  // Usuário simulado para teste
+  usuarioLogado = { nome: "João Silva", email: "joao@teste.com" };
+  localStorage.setItem('usuarioLogado', JSON.stringify(usuarioLogado));
+}
+
+// Preencher nome e email
+document.getElementById("perfilNome").textContent = usuarioLogado.nome;
+document.getElementById("perfilEmail").textContent = usuarioLogado.email;
+
+// Logout
+document.getElementById("logoutBtn").addEventListener("click", logout);
+document.getElementById("logoutPerfil").addEventListener("click", logout);
+
+function logout(){
+  localStorage.removeItem("usuarioLogado");
+  window.location.href = "index.html";
+}
+
+// Serviços simulados (já com "criadoPor")
+let servicos = JSON.parse(localStorage.getItem("servicos")) || [
+  { id: 1, titulo: "Cortar Grama", descricao: "Serviço de jardinagem", criadoPor: usuarioLogado.email },
+  { id: 2, titulo: "Conserto de Bike", descricao: "Manutenção completa", criadoPor: usuarioLogado.email },
+  { id: 3, titulo: "Aula de Inglês", descricao: "Aula particular", criadoPor: "outra@teste.com" }
+];
+
+localStorage.setItem("servicos", JSON.stringify(servicos));
+
+// Serviços reservados simulados
+let servicosReservados = JSON.parse(localStorage.getItem("servicosReservados")) || [
+  { id: 3, titulo: "Aula de Inglês", descricao: "Aula particular", usuario: usuarioLogado.email }
+];
+
+localStorage.setItem("servicosReservados", JSON.stringify(servicosReservados));
+
+// Renderizar serviços criados pelo usuário
+const divMeusServicos = document.getElementById("meusServicos");
+divMeusServicos.innerHTML = "";
+
+let meusServicos = servicos.filter(s => s.criadoPor === usuarioLogado.email);
+
+if(meusServicos.length === 0){
+  divMeusServicos.innerHTML = "<p>Você ainda não criou nenhum serviço.</p>";
+} else {
+  meusServicos.forEach(servico => {
+    const servicoDiv = document.createElement("div");
+    servicoDiv.classList.add("servico-item");
+    servicoDiv.innerHTML = `
+      <h3>${servico.titulo}</h3>
+      <p>${servico.descricao}</p>
+      <button class="btn-editar" data-id="${servico.id}">Editar</button>
+    `;
+    divMeusServicos.appendChild(servicoDiv);
+  });
+}
+
+// Capturar clique nos botões de editar
+divMeusServicos.addEventListener("click", (e) => {
+  if(e.target.classList.contains("btn-editar")){
+    const id = e.target.dataset.id;
+    window.location.href = `editar-servico.html?id=${id}`;
+  }
+});
+
+// Renderizar serviços reservados
+const divServicosReservados = document.getElementById("servicosReservados");
+let meusReservados = servicosReservados.filter(s => s.usuario === usuarioLogado.email);
+
+if(meusReservados.length === 0){
+  divServicosReservados.innerHTML = "<p>Você não reservou nenhum serviço ainda.</p>";
+} else {
+  meusReservados.forEach(servico => {
+    const servicoDiv = document.createElement("div");
+    servicoDiv.classList.add("servico-item");
+    servicoDiv.innerHTML = `
+      <h3>${servico.titulo}</h3>
+      <p>${servico.descricao}</p>
+    `;
+    divServicosReservados.appendChild(servicoDiv);
+  });
+}
 
