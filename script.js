@@ -7,7 +7,7 @@ const adminEmails = [
   "hbf2@aluno.ifnmg.edu.br"
 ];
 
-// Atualiza o menu dinamicamente
+
 function atualizarMenu() {
   const menu = document.getElementById("menuLinks");
   if (!menu) return;
@@ -30,7 +30,7 @@ function atualizarMenu() {
 }
 atualizarMenu();
 
-// Cadastro
+
 const cadastroForm = document.getElementById("cadastroForm");
 if (cadastroForm) {
   cadastroForm.addEventListener("submit", e => {
@@ -52,7 +52,7 @@ if (cadastroForm) {
   });
 }
 
-// Login
+
 const loginForm = document.getElementById("loginForm");
 if (loginForm) {
   loginForm.addEventListener("submit", e => {
@@ -75,7 +75,7 @@ if (loginForm) {
   });
 }
 
-// Perfil
+
 const perfilNome = document.getElementById("perfilNome");
 const perfilEmail = document.getElementById("perfilEmail");
 if (perfilNome && perfilEmail) {
@@ -88,7 +88,7 @@ if (perfilNome && perfilEmail) {
   }
 }
 
-// Admin - listar usuários
+
 const tabelaUsuarios = document.querySelector("#tabelaUsuarios tbody");
 if (tabelaUsuarios) {
   let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
@@ -111,7 +111,7 @@ function removerUsuario(index) {
   window.location.reload();
 }
 
-// Logout geral
+
 const logoutBtn = document.getElementById("logoutBtn");
 if (logoutBtn) {
   logoutBtn.addEventListener("click", () => {
