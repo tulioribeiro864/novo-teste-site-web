@@ -5,29 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Troque Serviços</title>
   <link rel="stylesheet" href="style.css">
-
-  <!-- GSAP para animações -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 </head>
-<body>
-  <main id="main">
-    <div class="hero_text_container">
-      <ul class="hero_text_title">
-        <li><span>Troque</span></li>
-        <li><span>&nbsp;</span></li>
-        <li><span>Serviços</span></li>
-      </ul>
-
-      <div class="hero_image">
-        <img src="img/Deadpool.png" alt="Imagem destaque">
+<body class="fade-in">
+  <!-- HEADER -->
+  <header>
+    <nav>
+      <a href="index.html" class="logo">Troque Serviços</a>
+      <div class="menu" id="menuLinks">
+        <a href="index.html">Home</a>
+        <a href="login.html">Login</a>
+        <a href="cadastro.html">Cadastro</a>
       </div>
+    </nav>
+  </header>
 
-      <div class="hero_buttons">
-        <a href="cadastro.html" class="btn">Cadastre-se</a>
-        <a href="crie.html" class="btn">Crie seu próprio Serviço</a>
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Troque serviços <br> dentro da instituição</h1>
+    <div class="botoes-hero">
+      <button onclick="window.location.href='cadastro.html'" class="btn-prisma">Cadastre-se</button>
+      <button onclick="window.location.href='login.html'" class="btn-prisma">Encontre um serviço</button>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section class="servicos">
+    <h2>Serviços em destaque</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Aulas de Violão 🎸</h3>
+        <p>Aprenda do zero com aulas práticas.</p>
+        <button class="btn-prisma">Reservar</button>
+      </div>
+      <div class="card">
+        <h3>Conserto de Celulares 📱</h3>
+        <p>Troca de tela, bateria e mais.</p>
+        <button class="btn-prisma">Reservar</button>
+      </div>
+      <div class="card">
+        <h3>Design de Logos 🎨</h3>
+        <p>Identidade visual para seu projeto.</p>
+        <button class="btn-prisma">Reservar</button>
       </div>
     </div>
-  </main>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 - Troque Serviços</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
