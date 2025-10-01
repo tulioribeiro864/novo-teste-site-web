@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Perfil - Troque Serviços</title>
+  <title>Perfil do Usuário</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- HEADER -->
   <header>
     <nav>
       <a href="index.html" class="logo">Troque Serviços</a>
@@ -18,14 +19,26 @@
     </nav>
   </header>
 
-  <section class="form-container">
-    <h2>Bem-vindo, <span id="perfilNome"></span>!</h2>
+  <main class="perfil-container">
+    <h1>Bem-vindo, <span id="perfilNome"></span>!</h1>
     <p>Email: <span id="perfilEmail"></span></p>
-    <button class="btn-prisma" onclick="window.location.href='criar-servico.html'">
-      Postar Serviço
-    </button>
-    <button class="btn-prisma" id="logoutBtn">Sair</button>
-  </section>
+
+    <!-- Serviços Criados -->
+    <section>
+      <h2>Meus Serviços Criados</h2>
+      <div id="meusServicos"></div>
+    </section>
+
+    <!-- Serviços Reservados -->
+    <section>
+      <h2>Serviços Reservados</h2>
+      <div id="servicosReservados"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 - Troque Serviços</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>

@@ -200,4 +200,90 @@ if (servicosContainer) {
     });
   }
 }
+// Renderizar serviços criados e reservados no perfil
+const meusServicosContainer = document.getElementById("meusServicos");
+const reservadosContainer = document.getElementById("servicosReservados");
+const userLogado = JSON.parse(localStorage.getItem("user"));
+
+if (meusServicosContainer && userLogado) {
+  let servicos = JSON.parse(localStorage.getItem("servicos")) || [];
+  let meusServicos = servicos.filter(s => s.email === userLogado.email);
+
+  if (meusServicos.length === 0) {
+    meusServicosContainer.innerHTML = "<p>Você ainda não criou nenhum serviço.</p>";
+  } else {
+    meusServicosContainer.innerHTML = "";
+    meusServicos.forEach((s, index) => {
+      let card = document.createElement("div");
+      card.classList.add("card");
+      card.innerHTML = `
+        <h3>${s.nome}</h3>
+        <p>${s.descricao}</p>
+        ${s.imagem ? `<img src="${s.imagem}" alt="Imagem do serviço">` : ""}
+        <p><b>Contato:</b> ${s.contato}</p>
+        <button onclick="editarServico(${index})">Editar</button>
+      `;
+      meusServicosContainer.appendChild(card);
+    });
+  }
+}
+
+if (reservadosContainer && userLogado) {
+  let reservas = JSON.parse(localStorage.getItem("reservas")) || {};
+  let minhasReservas = reservas[userLogado.email] || [];
+
+  if (minhasReservas.length === 0) {
+    reservadosContainer.innerHTML = "<p>Você ainda não reservou nenhum serviço.</p>";
+  } else {
+    reservadosContainer.innerHTML = "";
+    minhasReservas.forEach(s => {
+      let card = document.createElement("div");
+      card.classList.add("card");
+      card.innerHTML = `
+        <h3>${s.nome}</h3>
+        <p>${s.descricao}</p>
+        ${s.imagem ? `<img src="${s.imagem}" alt="Imagem do serviço">` : ""}
+        <p><b>Contato:</b> ${s.contato}</p>
+      `;
+      reservadosContainer.appendChild(card);
+    });
+  }
+}
+
+// Função para reservar serviço
+function reservarServico(index) {
+  let user = JSON.parse(localStorage.getItem("user"));
+  if (!user) {
+    alert("Você precisa estar logado para reservar um serviço!");
+    return;
+  }
+
+  let servicos = JSON.parse(localStorage.getItem("servicos")) || [];
+  let servico = servicos[index];
+
+  let reservas = JSON.parse(localStorage.getItem("reservas")) || {};
+  if (!reservas[user.email]) reservas[user.email] = [];
+  reservas[user.email].push(servico);
+  localStorage.setItem("reservas", JSON.stringify(reservas));
+
+  alert("Serviço reservado com sucesso!");
+}
+
+// Função para editar serviços
+function editarServico(index) {
+  let servicos = JSON.parse(localStorage.getItem("servicos")) || [];
+  let servico = servicos[index];
+
+  let novoNome = prompt("Novo nome do serviço:", servico.nome);
+  let novaDescricao = prompt("Nova descrição:", servico.descricao);
+  let novoContato = prompt("Novo contato:", servico.contato);
+
+  servicos[index].nome = novoNome || servico.nome;
+  servicos[index].descricao = novaDescricao || servico.descricao;
+  servicos[index].contato = novoContato || servico.contato;
+
+  localStorage.setItem("servicos", JSON.stringify(servicos));
+  alert("Serviço atualizado!");
+  window.location.reload();
+}
 
