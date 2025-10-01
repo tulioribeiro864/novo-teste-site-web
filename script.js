@@ -287,27 +287,3 @@ function editarServico(index) {
   window.location.reload();
 }
 
-// Mostrar nome e email do usuário logado no perfil
-const user = JSON.parse(localStorage.getItem("user"));
-if (user) {
-  document.getElementById("perfilNome").textContent = user.nome;
-  document.getElementById("perfilEmail").textContent = user.email;
-}
-
-// Botão de sair do perfil
-const logoutPerfil = document.getElementById("logoutPerfil");
-if (logoutPerfil) {
-  logoutPerfil.addEventListener("click", () => {
-    localStorage.removeItem("user");
-    window.location.href = "login.html";
-  });
-}
-
-// Também atualizar o botão sair do menu
-const logoutBtn = document.getElementById("logoutBtn");
-if (logoutBtn) {
-  logoutBtn.addEventListener("click", () => {
-    localStorage.removeItem("user");
-    window.location.href = "login.html";
-  });
-}
