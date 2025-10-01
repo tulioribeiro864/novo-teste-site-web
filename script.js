@@ -1,3 +1,4 @@
+// Lista de administradores
 const adminEmails = [
   "trn@aluno.ifnmg.edu.br",
   "vlap@aluno.ifnmg.edu.br",
@@ -7,7 +8,40 @@ const adminEmails = [
   "hbf2@aluno.ifnmg.edu.br"
 ];
 
+// Ativar transição de entrada
+window.addEventListener("load", () => {
+  document.body.classList.add("loaded");
 
+  // animação nos links do menu
+  gsap.from("header nav a", {
+    y: -20,
+    opacity: 0,
+    duration: 0.8,
+    stagger: 0.2,
+    ease: "back.out(1.7)"
+  });
+});
+
+// Animações ao clicar nos links da navbar
+const navLinks = document.querySelectorAll("nav a");
+navLinks.forEach(link => {
+  link.addEventListener("click", e => {
+    e.preventDefault();
+    const destino = link.getAttribute("href");
+
+    gsap.to("body", {
+      opacity: 0,
+      y: 30,
+      duration: 0.6,
+      ease: "power2.inOut",
+      onComplete: () => {
+        window.location.href = destino;
+      }
+    });
+  });
+});
+
+/* ================== Lógica de Login/Cadastro ================== */
 function atualizarMenu() {
   const menu = document.getElementById("menuLinks");
   if (!menu) return;
@@ -30,7 +64,6 @@ function atualizarMenu() {
 }
 atualizarMenu();
 
-
 const cadastroForm = document.getElementById("cadastroForm");
 if (cadastroForm) {
   cadastroForm.addEventListener("submit", e => {
@@ -51,7 +84,6 @@ if (cadastroForm) {
     }
   });
 }
-
 
 const loginForm = document.getElementById("loginForm");
 if (loginForm) {
@@ -75,7 +107,6 @@ if (loginForm) {
   });
 }
 
-
 const perfilNome = document.getElementById("perfilNome");
 const perfilEmail = document.getElementById("perfilEmail");
 if (perfilNome && perfilEmail) {
@@ -87,7 +118,6 @@ if (perfilNome && perfilEmail) {
     window.location.href = "login.html";
   }
 }
-
 
 const tabelaUsuarios = document.querySelector("#tabelaUsuarios tbody");
 if (tabelaUsuarios) {
@@ -111,7 +141,6 @@ function removerUsuario(index) {
   window.location.reload();
 }
 
-
 const logoutBtn = document.getElementById("logoutBtn");
 if (logoutBtn) {
   logoutBtn.addEventListener("click", () => {
@@ -120,5 +149,4 @@ if (logoutBtn) {
       window.location.href = "index.html";
     }
   });
-  }
-  
+}
