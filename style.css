@@ -116,3 +116,13 @@ nav a:hover {
   padding: 0.55em 0 0.85em;
   transition: transform var(--timeOut , var(--duration));
 }
+
+#main {
+  width: 100%;
+  position: relative;
+  background-color: #141414;
+  overflow-x: hidden;
+  background-image: url(img/Deadpool.png);
+  background-size: cover;
+  background-position: center;
+}

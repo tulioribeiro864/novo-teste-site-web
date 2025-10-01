@@ -121,3 +121,10 @@ if (logoutBtn) {
     }
   });
 }
+heroSectionTL.from(heroTextTitle, {
+  duration: 1.2,
+  opacity: 0,
+  ease: "power4.out",
+  transform: "translateY(100%)",
+  stagger: 0.1
+});
