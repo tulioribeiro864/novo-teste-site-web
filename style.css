@@ -1,128 +1,82 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
 body {
-  margin: 0;
-  font-family: 'Arial', sans-serif;
-  background: linear-gradient(135deg, #0f172a, #1e293b);
-  color: #fff;
-  animation: fadeIn 0.6s ease-in;
-}
-
-.fade-in {
-  animation: fadeIn 1s ease-in;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-header {
-  padding: 15px;
-  background: rgba(0,0,0,0.5);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-nav a {
-  color: #fff;
-  text-decoration: none;
-  margin: 0 10px;
-  transition: color 0.3s;
-}
-
-nav a:hover {
-  color: #38bdf8;
-}
-
-.hero {
-  text-align: center;
-  padding: 100px 20px;
-}
-
-.btn-prisma {
-  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
-  border: none;
-  color: #fff;
-  padding: 12px 24px;
-  margin: 10px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.3s;
-}
-
-.btn-prisma:hover {
-  transform: scale(1.05);
-  box-shadow: 0px 4px 15px rgba(56, 189, 248, 0.7);
-}
-
-.cards {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  padding: 20px;
-}
-
-.card {
-  background: #1e293b;
-  padding: 20px;
-  border-radius: 12px;
-  transition: transform 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-8px);
-}
-
-.form-container {
-  max-width: 400px;
-  margin: 100px auto;
-  padding: 30px;
-  background: #1e293b;
-  border-radius: 10px;
-  text-align: center;
-}
-
-.form-container input {
-  display: block;
-  width: 100%;
-  margin: 10px 0;
-  padding: 12px;
-  border-radius: 8px;
-  border: none;
-}
-.menu{
-  margin: 0;
-  display: flex;
-  width: 32.05em;
-  font-size: 1.5em;
-  padding: 0 2.85em;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--bgColorMenu);
-}
-
-.menu__item{
-  all: unset;
-  flex-grow: 1;
-  z-index: 100;
-  display: flex;
-  cursor: pointer;
-  position: relative;
-  border-radius: 50%;
-  align-items: center;
-  will-change: transform;
-  justify-content: center;
-  padding: 0.55em 0 0.85em;
-  transition: transform var(--timeOut , var(--duration));
+  background: #141414;
+  color: white;
+  overflow-x: hidden;
 }
 
 #main {
   width: 100%;
-  position: relative;
+  height: 100vh;
   background-color: #141414;
-  overflow-x: hidden;
-  background-image: url(img/Deadpool.png);
+  background-image: url("img/Deadpool.png");
   background-size: cover;
   background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero_text_container {
+  text-align: center;
+  color: white;
+}
+
+.hero_text_title {
+  list-style: none;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.hero_text_title li span {
+  display: inline-block;
+}
+
+.hero_image img {
+  width: 200px;
+  height: auto;
+  margin: 20px 0;
+  animation: float 3s ease-in-out infinite;
+}
+
+.hero_buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 12px 24px;
+  background: linear-gradient(45deg, #ff004c, #ff7300);
+  color: white;
+  font-weight: bold;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.btn:hover {
+  transform: scale(1.1);
+  background: linear-gradient(45deg, #ff7300, #ff004c);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Animação da imagem */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
 }
