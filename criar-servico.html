@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Perfil - Troque Serviços</title>
+  <title>Criar Serviço - Troque Serviços</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,12 +19,14 @@
   </header>
 
   <section class="form-container">
-    <h2>Bem-vindo, <span id="perfilNome"></span>!</h2>
-    <p>Email: <span id="perfilEmail"></span></p>
-    <button class="btn-prisma" onclick="window.location.href='criar-servico.html'">
-      Postar Serviço
-    </button>
-    <button class="btn-prisma" id="logoutBtn">Sair</button>
+    <h2>Criar Novo Serviço</h2>
+    <form id="servicoForm">
+      <input type="text" id="servicoNome" placeholder="Nome do Serviço" required>
+      <textarea id="servicoDescricao" placeholder="Descrição do serviço" required></textarea>
+      <input type="file" id="servicoImagem" multiple accept="image/*">
+      <input type="text" id="servicoContato" placeholder="Número para contato" required>
+      <button type="submit" class="btn-prisma">Postar Serviço</button>
+    </form>
   </section>
 
   <script src="script.js"></script>
