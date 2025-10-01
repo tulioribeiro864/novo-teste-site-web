@@ -3,20 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Editar Serviço</title>
+  <title>Editar Meus Serviços</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header>
+    <nav>
+      <a href="index.html" class="logo">Troque Serviços</a>
+      <div class="menu" id="menuLinks">
+        <a href="index.html">Home</a>
+        <a href="perfil.html">Perfil</a>
+        <a href="#" id="logoutBtn">Sair</a>
+      </div>
+    </nav>
+  </header>
+
   <main class="perfil-container">
-    <h1>Editar Serviço</h1>
-    <form id="formEditarServico">
-      <label>Título:</label>
-      <input type="text" id="tituloServico" required>
-      <label>Descrição:</label>
-      <textarea id="descricaoServico" required></textarea>
-      <button type="submit" class="btn">Salvar Alterações</button>
-    </form>
+    <h1>Editar Meus Serviços</h1>
+    <div id="meusServicosEditar"></div>
   </main>
-  <script src="editar-servico.js"></script>
+
+  <footer>
+    <p>&copy; 2025 - Troque Serviços</p>
+  </footer>
+
+  <script src="editar-servicos.js"></script>
 </body>
 </html>

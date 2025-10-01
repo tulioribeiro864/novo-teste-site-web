@@ -370,4 +370,50 @@ if(meusReservados.length === 0){
     divServicosReservados.appendChild(servicoDiv);
   });
 }
+// Verificar usuário logado
+let usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+
+if(!usuarioLogado){
+    window.location.href = "login.html"; // redireciona se não logado
+}
+
+// Logout
+document.getElementById("logoutBtn").addEventListener("click", () => {
+    localStorage.removeItem("usuarioLogado");
+    window.location.href = "index.html";
+});
+
+// Pegar serviços do localStorage
+let servicos = JSON.parse(localStorage.getItem("servicos")) || [];
+
+// Filtrar serviços do usuário
+let meusServicos = servicos.filter(s => s.criadoPor === usuarioLogado.email);
+
+// Renderizar serviços
+const divMeusServicos = document.getElementById("meusServicosEditar");
+divMeusServicos.innerHTML = "";
+
+if(meusServicos.length === 0){
+    divMeusServicos.innerHTML = "<p>Você ainda não criou nenhum serviço.</p>";
+} else {
+    meusServicos.forEach(servico => {
+        const servicoDiv = document.createElement("div");
+        servicoDiv.classList.add("servico-item"); // usa mesmo estilo da página inicial
+        servicoDiv.innerHTML = `
+            <h3>${servico.titulo}</h3>
+            <p>${servico.descricao}</p>
+            <button class="btn-editar" data-id="${servico.id}">Editar</button>
+        `;
+        divMeusServicos.appendChild(servicoDiv);
+    });
+}
+
+// Capturar clique em "Editar"
+divMeusServicos.addEventListener("click", (e) => {
+    if(e.target.classList.contains("btn-editar")){
+        const id = e.target.dataset.id;
+        // Redireciona para página de edição individual
+        window.location.href = `editar-servico.html?id=${id}`;
+    }
+});
 
