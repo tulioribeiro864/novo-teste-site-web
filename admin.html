@@ -18,28 +18,99 @@
 
   <main class="perfil-container">
     <h2>Painel Administrativo</h2>
-    <h3>Usuários cadastrados</h3>
-    <table id="tabelaUsuarios">
-      <thead>
-        <tr>
-          <th>Nome</th>
-          <th>Email</th>
-          <th>Ações</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
 
-    <h3>Serviços cadastrados</h3>
-    <ul>
-      <li>Aulas de Violão 🎸</li>
-      <li>Conserto de Celulares 📱</li>
-      <li>Design de Logos 🎨</li>
-    </ul>
+    <section>
+      <h3>Usuários cadastrados</h3>
+      <table id="tabelaUsuarios">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section>
+      <h3>Serviços cadastrados</h3>
+      <table id="tabelaServicos">
+        <thead>
+          <tr>
+            <th>Nome do Serviço</th>
+            <th>Descrição</th>
+            <th>Criado por</th>
+            <th>Contato</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
 
     <button id="logoutBtn" class="btn-prisma">Sair</button>
   </main>
 
-  <script src="script.js"></script>
+  <script>
+    const logoutBtn = document.getElementById("logoutBtn");
+    logoutBtn.addEventListener("click", () => {
+      localStorage.removeItem("user");
+      window.location.href = "index.html";
+    });
+
+    const tabelaUsuarios = document.querySelector("#tabelaUsuarios tbody");
+    let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+    tabelaUsuarios.innerHTML = "";
+    usuarios.forEach((u, index) => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${u.nome}</td>
+        <td>${u.email}</td>
+        <td><button class="btn-prisma" onclick="removerUsuario(${index})">Remover</button></td>
+      `;
+      tabelaUsuarios.appendChild(tr);
+    });
+
+    function removerUsuario(index){
+      if(confirm("Deseja realmente remover este usuário?")){
+        let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+        let userEmail = usuarios[index].email;
+        usuarios.splice(index,1);
+        localStorage.setItem("usuarios", JSON.stringify(usuarios));
+
+        // Remover serviços do usuário
+        let servicos = JSON.parse(localStorage.getItem("servicos")) || [];
+        servicos = servicos.filter(s => s.criadoPor !== userEmail);
+        localStorage.setItem("servicos", JSON.stringify(servicos));
+
+        window.location.reload();
+      }
+    }
+
+    const tabelaServicos = document.querySelector("#tabelaServicos tbody");
+    let servicos = JSON.parse(localStorage.getItem("servicos")) || [];
+    tabelaServicos.innerHTML = "";
+    servicos.forEach((s, index) => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${s.nome}</td>
+        <td>${s.descricao}</td>
+        <td>${s.criadoPorNome || s.criadoPor}</td>
+        <td>${s.contato}</td>
+        <td><button class="btn-prisma" onclick="removerServico(${index})">Remover</button></td>
+      `;
+      tabelaServicos.appendChild(tr);
+    });
+
+    function removerServico(index){
+      if(confirm("Deseja realmente remover este serviço?")){
+        let servicos = JSON.parse(localStorage.getItem("servicos")) || [];
+        servicos.splice(index,1);
+        localStorage.setItem("servicos", JSON.stringify(servicos));
+        window.location.reload();
+      }
+    }
+  </script>
 </body>
 </html>
