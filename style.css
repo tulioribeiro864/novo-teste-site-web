@@ -208,25 +208,3 @@ nav a:hover {
 .btn-danger:hover {
   background: #dc2626;
 }
-
-.navigation {
-  width: 420px;
-  height: 70px;
-  background: #209cff;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  z-index: 1;
-  borber-radius: 10px;
-}
-.navigation ul {
-  display: flex;
-  width: 350px;
-}
-.navigation ul li {
-  position: relative;
-  list-style: nome;
-  width: 70px;
-  height: 70px;
-  z-index: 1;
-}
