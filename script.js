@@ -1,4 +1,4 @@
-const adminEmails = ["trn@aluno.ifnmg.edu.br","vlap@aluno.ifnmg.edu.br","jpgs2@aluno.ifnmg.edu.br","lpo2@aluno.ifnmg.edu.br","mjfb@aluno.ifnmg.edu.br","hbf2@aluno.ifnmg.edu.br"];
+const adminEmails = ["trn@aluno.ifnmg.edu.br","vlap@aluno.ifnmg.edu.br","jgps2@aluno.ifnmg.edu.br","lpo2@aluno.ifnmg.edu.br","mjfb@aluno.ifnmg.edu.br","hbf2@aluno.ifnmg.edu.br"];
 let user = JSON.parse(localStorage.getItem("user"));
 
 const menu = document.getElementById("menuLinks");
