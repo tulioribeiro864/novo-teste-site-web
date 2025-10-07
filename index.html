@@ -6,35 +6,33 @@
   <title>Troque Serviços</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="fade-in">
+<body>
   <header>
-    <nav>
-      <a href="index.html" class="logo">Troque Serviços</a>
-      <div class="menu" id="menuLinks">
-        <a href="index.html">Home</a>
-        <a href="login.html">Login</a>
-        <a href="cadastro.html">Cadastro</a>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="img/logo.png" alt="Troque Serviços Logo">
       </div>
-    </nav>
+      <div class="menu-toggle">▼</div>
+      <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="perfil.html">Perfil</a>
+        <a href="pesquisa.html">Pesquisa</a>
+  </div>
+</nav>
+
   </header>
 
-  <section class="hero">
-    <h1>Troque serviços <br> dentro da instituição</h1>
-    <div class="botoes-hero">
-      <button onclick="window.location.href='cadastro.html'" class="btn-prisma">Cadastre-se</button>
-      <button onclick="window.location.href='login.html'" class="btn-prisma">Encontre um serviço</button>
-    </div>
-  </section>
-
-  <section class="servicos">
-    <h2>Serviços dos Usuários</h2>
-    <div id="servicosUsuarios" class="cards"></div>
-  </section>
+  <main>
+    <section class="hero">
+      <h1>Bem-vindo ao Troque Serviços</h1>
+      <p>Plataforma para criação e reserva de serviços</p>
+    </section>
+    <section id="servicosUsuarios"></section>
+  </main>
 
   <footer>
     <p>&copy; 2025 - Troque Serviços</p>
   </footer>
-
   <script src="script.js"></script>
 </body>
 </html>

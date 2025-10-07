@@ -172,3 +172,16 @@ function editarServico(index){
   localStorage.setItem("servicos", JSON.stringify(servicos));
   window.location.reload();
 }
+const navToggle = document.getElementById("navToggle");
+const sidebar = document.getElementById("sidebar");
+
+if (navToggle && sidebar) {
+  navToggle.addEventListener("click", () => {
+    navToggle.classList.toggle("active");
+    if (sidebar.style.display === "flex") {
+      sidebar.style.display = "none";
+    } else {
+      sidebar.style.display = "flex";
+    }
+  });
+}

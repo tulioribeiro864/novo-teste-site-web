@@ -208,3 +208,83 @@ nav a:hover {
 .btn-danger:hover {
   background: #dc2626;
 }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #141414;
+  color: #fff;
+}
+
+header {
+  width: 100%;
+  background: #1e293b;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.logo {
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.nav-toggle {
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 5px;
+  transition: transform 0.3s;
+  user-select: none;
+}
+
+.nav-toggle.active {
+  transform: rotate(180deg);
+}
+
+.sidebar {
+  position: absolute;
+  top: 50px;
+  left: 10px;
+  background: #0f172a;
+  border-radius: 8px;
+  display: none;
+  flex-direction: column;
+  padding: 10px;
+  animation: slideDown 0.3s ease forwards;
+}
+
+.sidebar a {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+.sidebar a:hover {
+  background: #2563eb;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.logo img {
+  height: 50px;
+  width: auto;
+}
