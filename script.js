@@ -185,14 +185,3 @@ if (navToggle && sidebar) {
     }
   });
 }
-document.addEventListener("DOMContentLoaded", () => {
-  const toggle = document.querySelector(".menu-toggle img");
-  const menu = document.querySelector(".menu");
-
-  toggle.addEventListener("click", () => {
-    menu.classList.toggle("show");
-    toggle.style.transform = menu.classList.contains("show")
-      ? "rotate(180deg)"
-      : "rotate(0deg)";
-  });
-});

@@ -288,31 +288,3 @@ header {
   height: 50px;
   width: auto;
 }
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #141414;
-  color: #fff;
-}
-
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 20px;
-  background: #0d0d0d;
-  position: relative;
-}
-
-.logo img {
-  height: 50px;
-  width: auto;
-}
-
-.menu-toggle img {
-  height: 25px;
-  width: 25px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
