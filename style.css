@@ -35,40 +35,49 @@ nav a:hover {
 }
 
 .hero {
-  position: relative;
-  height: 100vh;
-  background-image: url("imgs/fundo.png"); /* <<< Troque aqui a imagem */
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.hero .overlay {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.6);
-}
-
-.hero-content {
-  position: relative;
   text-align: center;
-  z-index: 2;
+  padding: 100px 20px;
 }
 
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 10px;
+.btn-prisma {
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  border: none;
+  color: #ffffff;
+  padding: 12px 24px;
+  margin: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.3s;
 }
 
-.hero p {
-  font-size: 1.3rem;
-  color: #e0e0e0;
+.btn-prisma:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 4px 15px rgba(56, 189, 248, 0.7);
 }
 
-/* Cards de Serviços */
-#servicosUsuarios {
+.cards {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 12px;
+  width: 250px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0px 6px 20px rgba(0,0,0,0.5);
+}
+
+#servicosUsuarios, #meusServicos, #servicosReservados {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
@@ -76,7 +85,9 @@ nav a:hover {
   justify-items: center;
 }
 
-#servicosUsuarios .card {
+#servicosUsuarios .card,
+#meusServicos .card,
+#servicosReservados .card {
   background: #1e293b;
   padding: 15px;
   border-radius: 12px;
@@ -85,12 +96,16 @@ nav a:hover {
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
-#servicosUsuarios .card:hover {
+#servicosUsuarios .card:hover,
+#meusServicos .card:hover,
+#servicosReservados .card:hover {
   transform: translateY(-6px);
   box-shadow: 0px 6px 18px rgba(0,0,0,0.5);
 }
 
-#servicosUsuarios img {
+#servicosUsuarios img,
+#meusServicos img,
+#servicosReservados img {
   max-width: 100%;
   max-height: 140px;
   object-fit: cover;
