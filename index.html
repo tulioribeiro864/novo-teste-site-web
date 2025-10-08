@@ -5,25 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Troque Serviços</title>
   <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="logo">
-      <img src="imgs/logo.png" alt="Troque Serviços Logo">
-    </div>
-    <div class="menu-toggle">
-      <img src="imgs/menu.png" alt="Abrir menu">
-    </div>
-    <div class="menu">
-      <a href="index.html">Home</a>
-      <a href="perfil.html">Perfil</a>
-      <a href="pesquisa.html">Pesquisa</a>
-    </div>
-  </nav>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="imgs/logo.png" alt="Troque Serviços Logo">
+      </div>
+      <div class="menu-toggle">
+      <img src="img/seta.png" alt="Abrir menu">
+      <div class="sidebar" id="sidebar">
+        <a href="index.html">Home</a>
+        <a href="perfil.html">Perfil</a>
+        <a href="pesquisa.html">Pesquisa</a>
+      </div>
+      <a href="index.html" class="logo">Troque Serviços</a>
+    </nav>
+  </header>
 
   <main>
-    <h1>Bem-vindo ao Troque Serviços</h1>
+    <section class="hero">
+      <h1>Bem-vindo ao Troque Serviços</h1>
+      <p>Plataforma para criação e reserva de serviços</p>
+    </section>
+    <section id="servicosUsuarios"></section>
   </main>
+
+  <footer>
+    <p>&copy; 2025 - Troque Serviços</p>
+  </footer>
+  <script src="script.js"></script>
 </body>
 </html>
