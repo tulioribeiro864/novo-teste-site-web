@@ -24,7 +24,7 @@ header {
 }
 
 nav a {
-  color: #fff;
+  color: #ffffff;
   text-decoration: none;
   margin: 0 10px;
   transition: color 0.3s;
@@ -42,7 +42,7 @@ nav a:hover {
 .btn-prisma {
   background: linear-gradient(135deg, #38bdf8, #0ea5e9);
   border: none;
-  color: #fff;
+  color: #ffffff;
   padding: 12px 24px;
   margin: 10px;
   border-radius: 8px;
@@ -263,7 +263,7 @@ header {
 }
 
 .sidebar a {
-  color: #fff;
+  color: #ffffff;
   text-decoration: none;
   padding: 8px 12px;
   border-radius: 6px;
