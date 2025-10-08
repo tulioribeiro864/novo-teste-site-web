@@ -39,6 +39,15 @@ nav a:hover {
   padding: 100px 20px;
 }
 
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: url("img/fundo.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+}
+
+
 .btn-prisma {
   background: linear-gradient(135deg, #38bdf8, #0ea5e9);
   border: none;
