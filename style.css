@@ -42,7 +42,7 @@ nav a:hover {
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: url("img/fundo.jpg") no-repeat center center fixed;
+  background: url("imgs/fundo.png") no-repeat center center fixed;
   background-size: cover;
   color: #fff;
 }
