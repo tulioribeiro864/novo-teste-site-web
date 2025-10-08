@@ -34,59 +34,168 @@ nav a:hover {
   color: #38bdf8;
 }
 
-.hero {
-  text-align: center;
-  padding: 100px 20px;
-}
+O ChatGPT disse:
 
+Beleza 👌
+Vou refazer todo o código para incluir a possibilidade de colocar imagens de fundo na página inicial.
+Você poderá trocar a imagem apenas alterando o CSS (background-image).
+
+Aqui está a versão refeita:
+
+📄 index.html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Troque Serviços</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="imgs/logo.png" alt="Troque Serviços Logo">
+      </div>
+      <div class="nav-toggle" id="navToggle">▼</div>
+      <div class="sidebar" id="sidebar">
+        <a href="index.html">Home</a>
+        <a href="perfil.html">Perfil</a>
+        <a href="pesquisa.html">Pesquisa</a>
+      </div>
+      <a href="index.html" class="logo-text">Troque Serviços</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="overlay"></div>
+      <div class="hero-content">
+        <h1>Bem-vindo ao Troque Serviços</h1>
+        <p>Plataforma para criação e reserva de serviços</p>
+      </div>
+    </section>
+
+    <section id="servicosUsuarios"></section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 - Troque Serviços</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
+
+🎨 style.css
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: url("imgs/fundo.png") no-repeat center center fixed;
-  background-size: cover;
+  font-family: 'Arial', sans-serif;
+  background: #141414;
   color: #fff;
+  animation: fadeIn 0.6s ease-in;
 }
 
-
-.btn-prisma {
-  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
-  border: none;
-  color: #ffffff;
-  padding: 12px 24px;
-  margin: 10px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.3s;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.btn-prisma:hover {
-  transform: scale(1.05);
-  box-shadow: 0px 4px 15px rgba(56, 189, 248, 0.7);
-}
-
-.cards {
+header {
+  padding: 15px 20px;
+  background: rgba(0,0,0,0.6);
   display: flex;
-  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  height: 50px;
+  width: auto;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.nav-toggle {
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 5px;
+  transition: transform 0.3s;
+  user-select: none;
+}
+
+.nav-toggle.active {
+  transform: rotate(180deg);
+}
+
+.sidebar {
+  position: absolute;
+  top: 50px;
+  left: 10px;
+  background: #0f172a;
+  border-radius: 8px;
+  display: none;
+  flex-direction: column;
+  padding: 10px;
+  animation: slideDown 0.3s ease forwards;
+}
+
+.sidebar a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+.sidebar a:hover {
+  background: #2563eb;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === HERO COM IMAGEM DE FUNDO === */
+.hero {
+  position: relative;
+  height: 100vh;
+  background-image: url("imgs/fundo-site.jpg"); /* <<< Troque aqui a imagem */
+  background-size: cover;
+  background-position: center;
+  display: flex;
   justify-content: center;
-  padding: 20px;
-  flex-wrap: wrap;
+  align-items: center;
 }
 
-.card {
-  background: #1e293b;
-  padding: 20px;
-  border-radius: 12px;
-  width: 250px;
+.hero .overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+}
+
+.hero-content {
+  position: relative;
   text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
+  z-index: 2;
 }
 
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0px 6px 20px rgba(0,0,0,0.5);
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
 }
 
-#servicosUsuarios, #meusServicos, #servicosReservados {
+.hero p {
+  font-size: 1.3rem;
+  color: #e0e0e0;
+}
+
+/* Cards de Serviços */
+#servicosUsuarios {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
@@ -94,9 +203,7 @@ body {
   justify-items: center;
 }
 
-#servicosUsuarios .card,
-#meusServicos .card,
-#servicosReservados .card {
+#servicosUsuarios .card {
   background: #1e293b;
   padding: 15px;
   border-radius: 12px;
@@ -105,16 +212,12 @@ body {
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
-#servicosUsuarios .card:hover,
-#meusServicos .card:hover,
-#servicosReservados .card:hover {
+#servicosUsuarios .card:hover {
   transform: translateY(-6px);
   box-shadow: 0px 6px 18px rgba(0,0,0,0.5);
 }
 
-#servicosUsuarios img,
-#meusServicos img,
-#servicosReservados img {
+#servicosUsuarios img {
   max-width: 100%;
   max-height: 140px;
   object-fit: cover;

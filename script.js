@@ -185,3 +185,11 @@ if (navToggle && sidebar) {
     }
   });
 }
+
+const navToggle = document.getElementById("navToggle");
+const sidebar = document.getElementById("sidebar");
+
+navToggle.addEventListener("click", () => {
+  sidebar.style.display = sidebar.style.display === "flex" ? "none" : "flex";
+  navToggle.classList.toggle("active");
+});
